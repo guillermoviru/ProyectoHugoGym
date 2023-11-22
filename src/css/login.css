@@ -1,0 +1,203 @@
+.login {
+    text-align: center;
+    background: linear-gradient(90deg, #677fe6, #5c6de3, #5763de);
+}
+
+.inicioiconoflecha {
+    display: flex;
+    position: fixed;
+    top: 10px;
+    /* Ajusta el margen superior */
+    left: 10px;
+    /* Ajusta el margen izquierdo */
+    color: #ff5f5a;
+}
+
+.login-header {
+    background: linear-gradient(90deg, #677fe6, #5c6de3, #5763de);
+    min-height: 10vh;
+   
+    font-size: calc(10px + 2vmin);
+    color: white;
+}
+
+.cabecera {
+    text-align: center;
+    display: flex;
+    position: center;
+    top: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* Ajusta el margen superior */
+    left: 0px;
+    /* Ajusta el margen izquierdo */
+}
+
+
+.login-body {
+    background: linear-gradient(90deg, #677fe6, #5c6de3, #5763de);
+    min-height: 100vh;
+}
+
+.login-logo {
+    height: 40vmin;
+    pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .login-logo {
+        animation: App-logo-spin infinite 20s linear;
+    }
+}
+
+.boton1 { 
+    margin-top: 10px;
+    width: 100px;
+    height: 30px;
+    border: none;
+    background: linear-gradient(90deg, #ff5f5a, #fd7062, #ff826f);
+    color: white;
+    cursor: pointer;
+    border-radius: 25px;
+}
+
+.boton2 {
+    margin-top: 5px;
+    width: 100px;
+    height: 30px;
+    border: none;
+    font-weight: bold;
+    background-color: white;
+    color: #ff5f5a;
+    cursor: pointer;
+    border-radius: 25px;
+}
+.inicio-body {
+    background: linear-gradient(90deg, #677fe6, #5c6de3, #5763de);
+    min-height: 100vh;
+  }
+
+.login-header {
+    background: linear-gradient(90deg, #677fe6, #5c6de3, #5763de);
+    min-height: 10vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
+ 
+    /* Alto del header */
+    /* ... otras propiedades del header ... */
+}
+.iniciocontenedorgoogle{ 
+    border-color:#fd7062;
+    margin-top: 30px;
+  margin-bottom: 8%;
+  border-radius: 200px;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  }
+
+.inicioiconos {
+
+    margin-top: 40px;
+    margin-right: 8px;
+    color: #ff5f5a;
+}
+
+.iniciotextfield label {
+    color: white;
+
+
+}
+.mi-boton-google {
+    border-radius: 10px;
+    /* Otros estilos que desees aplicar */
+  }
+
+.iniciocontenedor {
+    background: linear-gradient(90deg, #677fe6, #5c6de3, #5763de);
+    align-items: center;
+    display: flex;
+    flex-direction: column; /* Alinea los elementos verticalmente */
+
+
+}
+
+.iniciotextfield .MuiInputLabel-root {
+    text-align: center !important;
+}
+
+.iniciotextfield .MuiInputBase-input {
+    text-align: center;
+}
+
+.iniciotextfield {
+    width: 200px;
+    /* Ajusta el ancho del TextField según tus necesidades */
+    height: 30px;
+}
+
+.iniciotextfield .MuiOutlinedInput-root {
+    border-radius: 10px;
+    /* Añade el radio de borde de 10px */
+}
+
+.iniciotextfield .MuiInputBase-input {
+    color: white;
+}
+
+.iniciotextfield .MuiOutlinedInput-notchedOutline {
+    border-color: #ff5f5a;
+    border-width: 2px;
+    /* Cambia el color del borde */
+}
+
+.iniciotextfield .MuiInputBase-input::placeholder {
+    color: white;
+    border-color: #ff5f5a;
+    /* Cambia el color del placeholder */
+}
+
+.iniciotextfield .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline {
+    border-color: #ff5f5a;
+    /* Cambia el color del borde cuando el cursor está sobre el TextField */
+}
+
+.iniciotextfield .MuiOutlinedInput-root:focus,
+.iniciotextfield .MuiOutlinedInput-root:hover,
+.iniciotextfield .MuiOutlinedInput-root:active {
+    border-color: #ff5f5a;
+    /* Cambia el color del borde en los estados :focus, :hover y :active */
+}
+
+.iniciotextfield .MuiOutlinedInput-notchedOutline {
+    border-color: #ff5f5a;
+    border-width: 2px;
+    border-radius: 30px;
+    margin-top: 5px;
+    /* Agrega el border-radius */
+}
+
+/* Evita que cambie al enfocar y hacer clic */
+.iniciotextfield .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+    border-color: #ff5f5a;
+}
+
+.login-link {
+    color: #61dafb;
+}
+
+@keyframes login-logo-spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}

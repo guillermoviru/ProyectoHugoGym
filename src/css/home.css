@@ -1,0 +1,59 @@
+.home {
+    text-align: center;
+    background: linear-gradient(90deg, #677fe6, #5c6de3, #5763de);
+  }
+  
+  .home-logo {
+    height: 40vmin;
+    pointer-events: none;
+  }
+  
+  @media (prefers-reduced-motion: no-preference) {
+    .home-logo {
+      animation: App-logo-spin infinite 20s linear;
+    }
+  }
+  .boton1 {
+    width: 100px;
+    height: 30px;
+    border: none;
+    background: linear-gradient(90deg, #ff5f5a, #fd7062,#ff826f );
+    color: white;
+    cursor: pointer;
+    border-radius: 25px;
+   }
+   .boton2 {
+    width: 100px;
+    height: 30px;
+    border: none;
+    background: white;
+    color: #fd7062;
+    cursor: pointer;
+    border-radius: 25px;
+    margin-left: 30px;
+   }
+  
+  .home-header {
+    background: linear-gradient(90deg, #677fe6, #5c6de3,#5763de );
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
+  }
+  
+  .home-link {
+    color: #61dafb;
+  }
+  
+  @keyframes home-logo-spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  

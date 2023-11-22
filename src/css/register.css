@@ -1,0 +1,141 @@
+.register {
+    text-align: center;
+    background: linear-gradient(90deg, #677fe6, #5c6de3, #5763de);
+  }
+  
+  .register-logo {
+    height: 40vmin;
+    pointer-events: none;
+  }
+  
+  @media (prefers-reduced-motion: no-preference) {
+    .register-logo {
+      animation: register-logo-spin infinite 20s linear;
+    }
+  }
+  .registroiconoflecha{
+    display: flex;
+    position: fixed;
+    top: 10px; /* Ajusta el margen superior */
+    left: 10px; /* Ajusta el margen izquierdo */
+    color: #ff5f5a;
+   }
+  .mi-boton-google {
+    border-radius: 10px;
+    margin-top: 20px;
+    /* Otros estilos que desees aplicar */
+  }
+  .background-image {
+    top: 5;
+    left: 5;
+    width: 100px;
+    height: 100px;
+  }
+  
+  .register-header {
+    background: linear-gradient(90deg, #677fe6, #5c6de3, #5763de);
+    min-height: 10vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
+  }
+  
+  .register-body {
+    background: linear-gradient(90deg, #677fe6, #5c6de3, #5763de);
+    min-height: 100vh;
+  }
+  
+  .registrocontenedor {
+    background: linear-gradient(90deg, #677fe6, #5c6de3, #5763de);
+    align-items: center;
+    display: flex;
+    flex-direction: column; /* Alinea los elementos verticalmente */
+  }
+  .registrocontenedorgoogle{
+    margin-top: 8%;
+    margin-bottom: 8%;
+    border-radius: 200px;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  
+  .registroiconos {
+    margin-top: 40px;
+    margin-right: 8px;
+    color:  #ff5f5a;
+  }
+  
+  .registrotextfield label {
+    color: white;
+  
+    
+  }
+  
+  .registrotextfield .MuiInputLabel-root {
+    text-align: center !important;
+  }
+  .registrotextfield .MuiInputBase-input {
+    text-align: center;
+  }
+  
+  .registrotextfield {
+    width: 200px; /* Ajusta el ancho del TextField según tus necesidades */
+    height: 30px;
+  }
+  .registrotextfield .MuiOutlinedInput-root {
+    border-radius: 10px; /* Añade el radio de borde de 10px */
+  }
+  .registrotextfield .MuiInputBase-input {
+    color: white;
+  }
+  
+  .registrotextfield .MuiOutlinedInput-notchedOutline {
+    border-color: #ff5f5a;
+    border-width: 2px; /* Cambia el color del borde */
+  }
+  
+  .registrotextfield .MuiInputBase-input::placeholder {
+    color: white;
+    border-color: #ff5f5a; /* Cambia el color del placeholder */
+  }
+  .registrotextfield .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline {
+    border-color: #ff5f5a; /* Cambia el color del borde cuando el cursor está sobre el TextField */
+  }
+  .registrotextfield .MuiOutlinedInput-root:focus,
+  .registrotextfield .MuiOutlinedInput-root:hover,
+  .registrotextfield .MuiOutlinedInput-root:active {
+      border-color: #ff5f5a; /* Cambia el color del borde en los estados :focus, :hover y :active */
+  }
+  .registrotextfield .MuiOutlinedInput-notchedOutline {
+    border-color: #ff5f5a;
+    border-width: 2px;
+    border-radius: 30px;
+    margin-top: 5px; /* Agrega el border-radius */
+  }
+  
+  /* Evita que cambie al enfocar y hacer clic */
+  .registrotextfield .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+    border-color: #ff5f5a;
+  }
+  .register-link {
+    color: #61dafb;
+  }
+  
+  
+  .cabecera {
+    text-align: center;
+  }
+  
+  @keyframes register-logo-spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
