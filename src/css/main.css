@@ -1,6 +1,7 @@
 .main {
   text-align: center;
   background: white;
+ 
 }
 
 .nombre {
@@ -15,20 +16,69 @@
 
 @media (prefers-reduced-motion: no-preference) {
   .main-logo {
-    animation: App-logo-spin infinite 20s linear;
+    animation: home-logo-spin infinite 20s linear;
   }
+}
+
+/* Estilos para el TextField personalizado */
+.myCustomTextField label {
+  color: white;
+  border-color: white;
+  margin-left: 5px;
+  border-radius: 100px;
+  /* Color del texto del label */
+}
+
+#outlined-start-adornment {
+  color: white;
+  border-color: white;
+}
+
+#outlined-start-adornment-label {
+  color: white;
+
+}
+
+.myCustomTextField p  {
+  color: white;
+}
+
+.myCustomTextField .MuiOutlinedInput-notchedOutline {
+  top: -7px;
+  width: 90%;
+  margin-left: 5px;
+  border-color: white;
+  border-width: 2px;
+  border-radius: 20px;
+  color: white;
+}
+
+.myCustomTextField .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline {
+  border-color: white;
+}
+
+.myCustomTextField .MuiOutlinedInput-root:focus,
+.myCustomTextField .MuiOutlinedInput-root:hover,
+.myCustomTextField .MuiOutlinedInput-root:active {
+  border-color: white;
+}
+
+.myCustomTextField .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+  border-color: #fd7062;
 }
 
 .middle-container {
   margin-top: 1%;
   width: 100%;
-  height: 99%;
+  height: 78vh; /* Cambiado para ocupar el 100% del alto de la ventana */
   display: flex;
+  justify-content: flex-start; /* Alinea los elementos en la parte superior */
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  
   background: whitesmoke;
 }
+
 .mbsc-ios.mbsc-selected .mbsc-calendar-cell-text {
   background: #677fe6;
   border-color: #677fe6;
@@ -37,52 +87,68 @@
 
 .segundocontenedor {
   width: 78%;
-  height: 100%;
+  max-width: auto; /* Ajusta el ancho máximo según tus necesidades */
+  margin: 0 auto; /* Centra el contenedor horizontalmente */
+  height: auto;
   display: flex;
+  margin: 10px auto 0; /* Agrega un margen en la parte superior */
   flex-direction: column;
   align-items: center;
-  border-radius: 20%;
-  /* Añade un borde negro alrededor del segundocontenedor */
+  justify-content: center;
+  border-radius: 20px;
   padding: 20px;
-    background: linear-gradient(90deg, #677fe6, #5c6de3, #5763de);
-  /* Agrega relleno al segundocontenedor según sea necesario */
+  background: linear-gradient(90deg, #677fe6, #5c6de3, #5763de);
 }
 
 #demo-row-radio-buttons-group-label {
   color: #fff;
 }
 
-
 .radio-perderpeso {
   color: #ff5f5a;
+ 
 }
 
 .MuiFormControlLabel-label {
   color: white;
+ font-size: 9px !important;
+ width: auto;
 }
 
 .MuiFormControlLabel-root .MuiRadio-root {
   color: #ff5f5a;
+
+ 
 }
+.MuiFormControlLabel-root .MuiFormControlLabel-root {
+  color: #ff5f5a;
+width: 10px;
+ 
+}
+
 
 /* Cambia el color del círculo cuando la opción está seleccionada */
 .MuiFormControlLabel-root .MuiRadio-root.Mui-checked {
   color: #ff5f5a;
+  width: auto;
+
 }
+/* Cambiar el tamaño de la fuente de las opciones del OptionGroup */
 
 .label-and-input {
   display: flex;
+  flex-direction: column;
   align-items: center;
   margin-bottom: 10px;
+  width: 100%;
 }
-
 .label {
   width: 50%;
   color: white;
 }
 
 #pesoinput,
-#edadInput{
+#edadInput {
   border-color: #fff;
   border-width: 2px;
   color: white;
@@ -91,6 +157,7 @@
   border-radius: 20%;
   text-align: right;
 }
+
 #alturainput1 {
   border-color: #fff;
   border-width: 2px;
@@ -135,10 +202,10 @@
   border-color: #677fe6;
   color: #fff;
 }
+
 .mbsc-ios.mbsc-calendar-button.mbsc-button {
   color: #677fe6;
 }
-
 
 .mbsc-ios.mbsc-button {
   color: #677fe6;
@@ -146,8 +213,9 @@
   line-height: 2.25em;
   margin: .5em .25em;
   padding: 0 .5em;
-  transition: opacity .1s ease-out,background-color .1s ease-out;
+  transition: opacity .1s ease-out, background-color .1s ease-out;
 }
+
 .mbsc-icon {
   color: #677fe6;
   -moz-box-flex: 0;
@@ -160,29 +228,29 @@
   width: 1.5em;
 }
 
-
 /* Cambia el color de fondo al seleccionar una fecha en el Datepicker */
-
 
 /* Cambia el color del texto de la fecha seleccionada */
 .mbsc-selected .mbsc-calendar-cell-text {
   color: #fff !important;
   background-color: #677fe6 !important;
-  border-color: #677fe6 !important;;
+  border-color: #677fe6 !important;
 }
+
 .mbsc-ios.mbsc-calendar-button.mbsc-button {
   color: #677fe6 !important;
 }
+
 .custom-view {
   display: flex;
   justify-content: center;
- 
-  
 }
+
 .MuiBottomNavigationAction-label {
   color: #677fe6 !important;
 }
-.mbsc-calendar-cell-text .mbsc-calendar-day-text .mbsc-ios .mbsc-calendar-today{
+
+.mbsc-calendar-cell-text .mbsc-calendar-day-text .mbsc-ios .mbsc-calendar-today {
   color: #677fe6 !important;
 }
 
@@ -202,10 +270,9 @@
 }
 
 .mbsc-segmented .mbsc-icon {
-  font-size: 20px;
+  font-size: 15px;
   color: #677fe6;
 }
-
 
 .mbsc-segmented-button.mbsc-windows {
   border: 0;
@@ -218,12 +285,9 @@
   background: white;
   border: 1px solid #a0a0a0;
   border-radius: 5px;
-  
 }
+
 /* Cambia el color de fondo al seleccionar una fecha en el Datepicker */
-
-
-
 
 .caja {
   display: flex;
@@ -238,10 +302,10 @@
   width: 100%;
   height: 7%;
   background-color: white;
- 
 }
+
 .boton1 {
-  margin-left: 30px;
+
   width: 100px;
   height: 30px;
   border: none;
@@ -252,7 +316,7 @@
 }
 
 .boton2 {
-  margin-top: 5px;
+  margin-left: 5px;
   width: 100px;
   height: 30px;
   border: none;
@@ -277,9 +341,11 @@
 .main-link {
   color: #61dafb;
 }
-.icono{
+
+.icono {
   color: #677fe6;
 }
+
 .textfield1 .MuiOutlinedInput-notchedOutline {
   text-align: center;
   border-color: white;
@@ -308,6 +374,7 @@
 .textfield1 .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
   border-color: white;
 }
+
 @keyframes home-logo-spin {
   from {
     transform: rotate(0deg);

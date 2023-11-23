@@ -26,7 +26,7 @@ function Register() {
       console.log('Variable 4:', Contraseña1);
       console.log('Variable 5:', Contraseña2);
       if (validarCorreo(Correo)) {
-        //Verificar si el Correo existe o el usuario ysi coinciden las contraseñas
+        //Verificar si el Correo existe o el usuario y si coinciden las contraseñas
         if (Contraseña1 === Contraseña2) {
             try {
                 const response = await axios.post('http://localhost:8080/Usuario/register', {

@@ -17,7 +17,7 @@ import FormControl from '@mui/material/FormControl';
 import FormLabel from '@mui/material/FormLabel';
 import BottomNavigation from '@mui/material/BottomNavigation';
 import BottomNavigationAction from '@mui/material/BottomNavigationAction';
-
+import InputAdornment from '@mui/material/InputAdornment';
 
 
 function Main() {
@@ -33,8 +33,7 @@ function Main() {
   const nombre = usuario.nombre;
 
   const handleCompletarClick = () => {
-    console.log('Genero actual:', Genero);
-    console.log('Meta actual:', Meta);
+
 
     // Validar los datos antes de realizar otras acciones
     if (!validarDatos()) {
@@ -45,6 +44,11 @@ function Main() {
 
     // Si los datos son válidos, puedes continuar con otras acciones
     console.log('Datos válidos. Continuando con otras acciones...');
+    console.log('Genero actual:', Genero);
+    console.log('Meta actual:', Meta);
+    console.log('Edad actual:', Edad);
+    console.log('Altura actual:', Altura);
+    console.log('Peso actual:', Peso);
     // Otras acciones que desees realizar al hacer clic en Completar
   };
 
@@ -52,15 +56,28 @@ function Main() {
   const validarDatos = () => {
     // Aquí puedes agregar la lógica de validación para altura, edad y peso
     // Devuelve true si los datos son válidos y false si no lo son
-
-    const alturaValida = validarAltura(); // Implementa la función validarAltura
-    const edadValida = validarEdad(); // Implementa la función validarEdad
-    const pesoValido = validarPeso(); // Implementa la función validarPeso
-
-    return alturaValida && edadValida && pesoValido;
+  
+    const alturaValida = validarAltura(Altura);
+    const edadValida = validarEdad(Edad);
+    const pesoValido = validarPeso(Peso);
+  
+    if (alturaValida !== true) {
+      console.log('Altura no válida. Por favor, verifica la entrada de datos.');
+      return false;
+    }
+  
+    if (edadValida !== true) {
+      console.log(`Edad no válida: ${edadValida}`);
+      return false;
+    }
+  
+    if (pesoValido !== true) {
+      console.log(`Peso no válido: ${pesoValido}`);
+      return false;
+    }
+  
+    return true;
   };
-
-
   // Función para validar la altura
   // Función para validar la altura
   const validarAltura = (Altura) => {
@@ -78,17 +95,48 @@ function Main() {
   };
 
 
-  const validarEdad = () => {
-    // Implementa la lógica de validación para la edad
-    // Devuelve true si la edad es válida y false si no lo es
-    return true; // Ejemplo: siempre se considera válida
+  const validarEdad = (edad) => {
+    // Convertir la edad a un número
+    const edadNumero = parseInt(edad, 10);
+  
+    // Verificar si la edad es un número y está dentro del rango deseado
+    if (!isNaN(edadNumero) && edadNumero >= 18 && edadNumero <= 99) {
+      // La edad es válida
+      return true;
+    } else {
+      // La edad no es válida, puedes devolver un mensaje de error específico
+      return 'La edad debe estar entre 18 y 99.';
+    }
   };
-
-  const validarPeso = () => {
-    // Implementa la lógica de validación para el peso
-    // Devuelve true si el peso es válido y false si no lo es
-    return true; // Ejemplo: siempre se considera válido
+  const validarPeso = (peso) => {
+    // Convertir el peso a un número
+    const pesoNumero = parseFloat(peso);
+  
+    // Verificar si el peso es un número y está dentro del rango deseado
+    if (!isNaN(pesoNumero) && pesoNumero >= 30 && pesoNumero <= 200) {
+      // El peso es válido
+      return true;
+    } else {
+      // El peso no es válido, puedes devolver un mensaje de error específico
+      return 'El peso debe estar entre 30 y 200.';
+    }
   };
+  const handleAlturaChange = (event) => {
+    // Aquí puedes manejar los cambios en el campo de texto
+    const inputValue = event.target.value;
+    setAltura(inputValue)
+  };
+  const handlePesoChange = (event) => {
+    // Aquí puedes manejar los cambios en el campo de texto
+    const inputValue = event.target.value;
+    setPeso(inputValue)
+  };
+  const handleEdadChange = (event) => {
+    // Aquí puedes manejar los cambios en el campo de texto
+    const inputValue = event.target.value;
+    setEdad(inputValue)
+  };
+  
   const handleGeneroChange = (event) => {
     const nuevoGenero = event.target.value === 'male' ? 2 : 1;
     setGenero((prevGenero) => {
@@ -127,7 +175,7 @@ function Main() {
     setCalendarType(event.target.value);
   }
   return (
-    <div>
+    <div >
       <header>
         <div>
           <h1 className='nombre'>Hola {nombre}</h1>
@@ -156,49 +204,58 @@ function Main() {
             <>
               <div className="segundocontenedor">
                 <div className="label-and-input">
-                  <label className="label">Peso:</label>
                   <TextField
-                    className="textfield"
-                    id="pesoinput"
-                    name="peso"
-                    type="number"
-                    inputProps={{
-                      min: 0,
-                      max: 150,
+                    label="Introduce el Peso"
+                    id="outlined-start-adornment"
+                    sx={{ m: 1, width: '25ch' }}
+                    InputProps={{
+                      startAdornment: <InputAdornment  className="kg" position="start">kg</InputAdornment>,
+                      inputProps: {
+                        inputMode: 'numeric',
+                        pattern: '[0-9]*', // Asegura que solo se admitan números
+                      },
                     }}
-                    value={Peso}
-                    onChange={(e) => setPeso(e.target.value)}
+                    
+                    className="myCustomTextField"
+                    type="number" // Puedes cambiar esto a "number" si solo quieres números, pero ten en cuenta que mostrará controles de incremento/decremento en algunos navegadores.
+                    onChange={handlePesoChange}
                   />
                 </div>
                 <div className="label-and-input">
-                  <label className="label">Edad:</label>
-                  <TextField
-                    className="textfield"
-                    id="edadInput"
-                    name="edad"
-                    type="number"
-                    inputProps={{
-                      min: 0,
-                      max: 150,
+                <TextField
+                    label="Introduce la Edad "
+                    id="outlined-start-adornment"
+                    sx={{ m: 1, width: '25ch' }}
+                    InputProps={{
+                      startAdornment: <InputAdornment  className="kg" position="start">Edad</InputAdornment>,
+                      inputProps: {
+                        inputMode: 'numeric',
+                        pattern: '[0-9]*', // Asegura que solo se admitan números
+                      },
                     }}
-                    value={Edad}
-                    onChange={(e) => setEdad(e.target.value)}
+                    
+                    className="myCustomTextField"
+                    type="number" // Puedes cambiar esto a "number" si solo quieres números, pero ten en cuenta que mostrará controles de incremento/decremento en algunos navegadores.
+                    onChange={handleEdadChange}
                   />
                 </div>
 
                 <div className="label-and-input">
-                  <label className="label">Altura:</label>
-                  <TextField
-                    className="textfield1"
-                    id="alturainput1"
-                    name="altura"
-                    type="number"
-                    inputProps={{
-                      min: 0,
-                      max: 150,
+                <TextField
+                    label="Introduce la Altura "
+                    id="outlined-start-adornment"
+                    sx={{ m: 1, width: '25ch' }}
+                    InputProps={{
+                      startAdornment: <InputAdornment  className="kg" position="start">Cm</InputAdornment>,
+                      inputProps: {
+                        inputMode: 'numeric',
+                        pattern: '[0-9]*', // Asegura que solo se admitan números
+                      },
                     }}
-                    value={Altura}
-                    onChange={(e) => setAltura(e.target.value)}
+                    
+                    className="myCustomTextField"
+                    type="number" // Puedes cambiar esto a "number" si solo quieres números, pero ten en cuenta que mostrará controles de incremento/decremento en algunos navegadores.
+                    onChange={handleAlturaChange}
                   />
                 </div>
                 <div>
@@ -234,14 +291,14 @@ function Main() {
                 </div>
                 <div>
                   <button className="boton1" onClick={handleCompletarClick}>Completar</button>
-                  <button className="boton1" >Cancelar</button>
+                  <button className="boton2" >Cancelar</button>
                 </div>
               </div>
             </>
           )}
         </div>
         <div className="caja">
-          <BottomNavigation sx={{  width: '100vw'}} value={value} onChange={handleChange} >
+          <BottomNavigation sx={{ width: '100vw' }} value={value} onChange={handleChange} >
             <BottomNavigationAction
               label="Inicio"
               value="inicio"
