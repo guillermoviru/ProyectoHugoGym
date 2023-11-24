@@ -133,13 +133,32 @@ width: 10px;
   width: auto;
 
 }
+.myCustomSlider {
+  /* Agrega tus estilos personalizados aquí */
+  width: 200px !important; /* Ancho personalizado */
+  color: white !important;
+  /* Otros estilos que desees aplicar */
+}
+/* Cambia el color del punto (thumb) del Slider */
+.myCustomSlider .MuiSlider-thumb {
+  color: #ff5f5a !important;
+}
+/* Cambia el color de los labels del Slider */
+.MuiSlider-markLabel {
+  color: white !important;
+  font-size: 10px  !important;
+  padding: 1px;
+}
 /* Cambiar el tamaño de la fuente de las opciones del OptionGroup */
+#slider-label{
+  color: white;
+}
 
 .label-and-input {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 10px;
+  margin-bottom: px;
   width: 100%;
 }
 .label {

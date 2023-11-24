@@ -8,7 +8,16 @@ import NotificationsIcon from '@mui/icons-material/Notifications';
 import SettingsIcon from '@mui/icons-material/Settings';
 import '../css/main.css';
 import '@mobiscroll/react/dist/css/mobiscroll.min.css';
-import { Datepicker, CalendarPrev, CalendarNav, CalendarNext, SegmentedGroup, SegmentedItem, setOptions, localeEs } from '@mobiscroll/react';
+import {
+  Datepicker,
+  CalendarPrev,
+  CalendarNav,
+  CalendarNext,
+  SegmentedGroup,
+  SegmentedItem,
+  setOptions,
+  localeEs,
+} from '@mobiscroll/react';
 import TextField from '@mui/material/TextField';
 import Radio from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
@@ -18,10 +27,9 @@ import FormLabel from '@mui/material/FormLabel';
 import BottomNavigation from '@mui/material/BottomNavigation';
 import BottomNavigationAction from '@mui/material/BottomNavigationAction';
 import InputAdornment from '@mui/material/InputAdornment';
-
-
+import Slider from '@mui/material/Slider';
 function Main() {
-  //Creacion de Constantes
+  // Creación de Constantes
   const [Peso, setPeso] = useState(0);
   const [Edad, setEdad] = useState(0);
   const [Altura, setAltura] = useState(0.0);
@@ -31,10 +39,8 @@ function Main() {
   const location = useLocation();
   const usuario = location.state?.usuario;
   const nombre = usuario.nombre;
-
+  const [sliderValue, setSliderValue] = useState(0);
   const handleCompletarClick = () => {
-
-
     // Validar los datos antes de realizar otras acciones
     if (!validarDatos()) {
       // Si los datos no son válidos, puedes mostrar un mensaje al usuario o realizar otras acciones
@@ -49,6 +55,7 @@ function Main() {
     console.log('Edad actual:', Edad);
     console.log('Altura actual:', Altura);
     console.log('Peso actual:', Peso);
+    console.log('Actividad actual:', sliderValue);
     // Otras acciones que desees realizar al hacer clic en Completar
   };
 
@@ -56,29 +63,29 @@ function Main() {
   const validarDatos = () => {
     // Aquí puedes agregar la lógica de validación para altura, edad y peso
     // Devuelve true si los datos son válidos y false si no lo son
-  
+
     const alturaValida = validarAltura(Altura);
     const edadValida = validarEdad(Edad);
     const pesoValido = validarPeso(Peso);
-  
+
     if (alturaValida !== true) {
       console.log('Altura no válida. Por favor, verifica la entrada de datos.');
       return false;
     }
-  
+
     if (edadValida !== true) {
       console.log(`Edad no válida: ${edadValida}`);
       return false;
     }
-  
+
     if (pesoValido !== true) {
       console.log(`Peso no válido: ${pesoValido}`);
       return false;
     }
-  
+
     return true;
   };
-  // Función para validar la altura
+
   // Función para validar la altura
   const validarAltura = (Altura) => {
     // Convertir la altura a un número
@@ -94,11 +101,10 @@ function Main() {
     }
   };
 
-
   const validarEdad = (edad) => {
     // Convertir la edad a un número
     const edadNumero = parseInt(edad, 10);
-  
+
     // Verificar si la edad es un número y está dentro del rango deseado
     if (!isNaN(edadNumero) && edadNumero >= 18 && edadNumero <= 99) {
       // La edad es válida
@@ -108,10 +114,11 @@ function Main() {
       return 'La edad debe estar entre 18 y 99.';
     }
   };
+
   const validarPeso = (peso) => {
     // Convertir el peso a un número
     const pesoNumero = parseFloat(peso);
-  
+
     // Verificar si el peso es un número y está dentro del rango deseado
     if (!isNaN(pesoNumero) && pesoNumero >= 30 && pesoNumero <= 200) {
       // El peso es válido
@@ -121,64 +128,76 @@ function Main() {
       return 'El peso debe estar entre 30 y 200.';
     }
   };
+
   const handleAlturaChange = (event) => {
     // Aquí puedes manejar los cambios en el campo de texto
     const inputValue = event.target.value;
-    setAltura(inputValue)
+    setAltura(inputValue);
   };
+
   const handlePesoChange = (event) => {
     // Aquí puedes manejar los cambios en el campo de texto
     const inputValue = event.target.value;
-    setPeso(inputValue)
+    setPeso(inputValue);
   };
+
   const handleEdadChange = (event) => {
     // Aquí puedes manejar los cambios en el campo de texto
     const inputValue = event.target.value;
-    setEdad(inputValue)
+    setEdad(inputValue);
   };
-  
+
   const handleGeneroChange = (event) => {
     const nuevoGenero = event.target.value === 'male' ? 2 : 1;
     setGenero((prevGenero) => {
       return nuevoGenero;
     });
   };
+
   const handleMetaChange = (event) => {
     const nuevaMeta = parseInt(event.target.value, 10); // Convierte a número
     setMeta(nuevaMeta);
   };
+
   const [calendarType, setCalendarType] = React.useState('week');
+
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
+
   setOptions({
     locale: localeEs,
     theme: 'ios',
-    themeVariant: 'light'
+    themeVariant: 'light',
   });
+
   const calendarHeaderSwitch = () => {
-    return <React.Fragment>
-      <CalendarNav className="custom-view-nav" />
-      <div className="custom-view">
-        <SegmentedGroup value={calendarType} onChange={changeView}>
-          <SegmentedItem value="week" icon="material-date-range" />
-          <SegmentedItem value="month" icon="material-event-note" />
-        </SegmentedGroup>
-      </div>
-      <div >
-        <CalendarPrev />
-        <CalendarNext />
-      </div>
-    </React.Fragment>;
-  }
+    return (
+      <React.Fragment>
+        <CalendarNav className="custom-view-nav" />
+        <div className="custom-view">
+          <SegmentedGroup value={calendarType} onChange={changeView}>
+            <SegmentedItem value="week" icon="material-date-range" />
+            <SegmentedItem value="month" icon="material-event-note" />
+          </SegmentedGroup>
+        </div>
+        <div>
+          <CalendarPrev />
+          <CalendarNext />
+        </div>
+      </React.Fragment>
+    );
+  };
+
   const changeView = (event) => {
     setCalendarType(event.target.value);
-  }
+  };
+
   return (
-    <div >
+    <div>
       <header>
         <div>
-          <h1 className='nombre'>Hola {nombre}</h1>
+          <h1 className="nombre">Hola {nombre}</h1>
         </div>
       </header>
       <body>
@@ -209,31 +228,37 @@ function Main() {
                     id="outlined-start-adornment"
                     sx={{ m: 1, width: '25ch' }}
                     InputProps={{
-                      startAdornment: <InputAdornment  className="kg" position="start">kg</InputAdornment>,
+                      startAdornment: (
+                        <InputAdornment className="kg" position="start">
+                          kg
+                        </InputAdornment>
+                      ),
                       inputProps: {
                         inputMode: 'numeric',
                         pattern: '[0-9]*', // Asegura que solo se admitan números
                       },
                     }}
-                    
                     className="myCustomTextField"
                     type="number" // Puedes cambiar esto a "number" si solo quieres números, pero ten en cuenta que mostrará controles de incremento/decremento en algunos navegadores.
                     onChange={handlePesoChange}
                   />
                 </div>
                 <div className="label-and-input">
-                <TextField
+                  <TextField
                     label="Introduce la Edad "
                     id="outlined-start-adornment"
                     sx={{ m: 1, width: '25ch' }}
                     InputProps={{
-                      startAdornment: <InputAdornment  className="kg" position="start">Edad</InputAdornment>,
+                      startAdornment: (
+                        <InputAdornment className="kg" position="start">
+                          Edad
+                        </InputAdornment>
+                      ),
                       inputProps: {
                         inputMode: 'numeric',
                         pattern: '[0-9]*', // Asegura que solo se admitan números
                       },
                     }}
-                    
                     className="myCustomTextField"
                     type="number" // Puedes cambiar esto a "number" si solo quieres números, pero ten en cuenta que mostrará controles de incremento/decremento en algunos navegadores.
                     onChange={handleEdadChange}
@@ -241,18 +266,21 @@ function Main() {
                 </div>
 
                 <div className="label-and-input">
-                <TextField
+                  <TextField
                     label="Introduce la Altura "
                     id="outlined-start-adornment"
                     sx={{ m: 1, width: '25ch' }}
                     InputProps={{
-                      startAdornment: <InputAdornment  className="kg" position="start">Cm</InputAdornment>,
+                      startAdornment: (
+                        <InputAdornment className="kg" position="start">
+                          Cm
+                        </InputAdornment>
+                      ),
                       inputProps: {
                         inputMode: 'numeric',
                         pattern: '[0-9]*', // Asegura que solo se admitan números
                       },
                     }}
-                    
                     className="myCustomTextField"
                     type="number" // Puedes cambiar esto a "number" si solo quieres números, pero ten en cuenta que mostrará controles de incremento/decremento en algunos navegadores.
                     onChange={handleAlturaChange}
@@ -283,42 +311,48 @@ function Main() {
                       value={Meta.toString()}
                       onChange={handleMetaChange}
                     >
-                      <FormControlLabel value='1' control={<Radio className="radio-perderpeso" />} label="Perder Peso" />
-                      <FormControlLabel value='2' control={<Radio className="radio-perderpeso" />} label="Definicion" />
-                      <FormControlLabel value='3' control={<Radio className="radio-perderpeso" />} label="Volumen" />
+                      <FormControlLabel value="1" control={<Radio className="radio-perderpeso" />} label="Perder Peso" />
+                      <FormControlLabel value="2" control={<Radio className="radio-perderpeso" />} label="Definicion" />
+                      <FormControlLabel value="3" control={<Radio className="radio-perderpeso" />} label="Volumen" />
                     </RadioGroup>
                   </FormControl>
                 </div>
+                <div className="label-and-input">
+                  <FormLabel id="slider-label">Nivel de Actividad</FormLabel>
+                  <Slider
+                   className="myCustomSlider"
+                    value={sliderValue}
+                    onChange={(event, newValue) => setSliderValue(newValue)}
+                    aria-labelledby="slider-label"
+                    valueLabelDisplay="auto"
+                    step={1} // Ajusta el valor del paso según tus necesidades
+                    marks={[
+                      { value: 1, label: 'Sedentario' },
+                      { value: 2, label: 'Ligera' },
+                      { value: 3, label: 'Moderada' },
+                      { value: 4, label: 'Intensa' },
+                      { value: 5, label: 'Muy Intensa' },
+                    ]}
+                    min={1}
+                    max={5}
+                  />
+                </div>
                 <div>
-                  <button className="boton1" onClick={handleCompletarClick}>Completar</button>
-                  <button className="boton2" >Cancelar</button>
+                  <button className="boton1" onClick={handleCompletarClick}>
+                    Completar
+                  </button>
+                  <button className="boton2">Cancelar</button>
                 </div>
               </div>
             </>
           )}
         </div>
         <div className="caja">
-          <BottomNavigation sx={{ width: '100vw' }} value={value} onChange={handleChange} >
-            <BottomNavigationAction
-              label="Inicio"
-              value="inicio"
-              icon={<HomeIcon className="icono" />}
-            />
-            <BottomNavigationAction
-              label="Perfil"
-              value="perfil"
-              icon={<PersonIcon className="icono" />}
-            />
-            <BottomNavigationAction
-              label="Notific"
-              value="notific"
-              icon={<NotificationsIcon className="icono" />}
-            />
-            <BottomNavigationAction
-              label="Ajustes"
-              value="ajustes"
-              icon={<SettingsIcon className="icono" />}
-            />
+          <BottomNavigation sx={{ width: '100vw' }} value={value} onChange={handleChange}>
+            <BottomNavigationAction label="Inicio" value="inicio" icon={<HomeIcon className="icono" />} />
+            <BottomNavigationAction label="Perfil" value="perfil" icon={<PersonIcon className="icono" />} />
+            <BottomNavigationAction label="Notific" value="notific" icon={<NotificationsIcon className="icono" />} />
+            <BottomNavigationAction label="Ajustes" value="ajustes" icon={<SettingsIcon className="icono" />} />
           </BottomNavigation>
         </div>
       </body>
